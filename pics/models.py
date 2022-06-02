@@ -1,6 +1,5 @@
-from email.mime import image
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class User(models.Model):
@@ -34,5 +33,52 @@ class tags(models.Model):
     class Meta:
       ordering = ['tag']
 
+class Image(models.Model):
+    image = CloudinaryField('image')
+    name =  models.CharField(max_length =60)
+    description = models.TextField()
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    tags = models.ManyToManyField(tags) 
+    
+    def __str__(self):
+        """
+    A method that returns an image through its name
+     """
+        return self.name
+    
+    def save_image(self):
+        """
+    A method that saves an image
+     """
+        self.save()
+        
+    def delete_image(self):
+        """
+    A method that delets an image
+     """
+        self.delete()    
+    
+    def get_image_by_id(id):
+        """
+    A method that gets an image by its id
+     """
+        image = Image.objects.get(id)
+        return image
+        
+    @classmethod
+    def all_images(cls):
+        """
+    A method that gets all images
+     """
+        images = cls.objects.all()
+        return images    
+    
+    @classmethod
+    def search_image(cls,search_term):
+        """
+    A method that searches an image
+     """
+        images = cls.objects.filter(tags__tag=search_term)
+        return images
 
-
+ 
