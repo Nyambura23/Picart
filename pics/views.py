@@ -1,35 +1,29 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, Http404
 import datetime as dte
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('Welcome to Picsart')
+    return render(request, 'Welcome.html')
 
-def news_of_day(request):
+def pics_of_day(request):
     date = dte.date.today()
 
-        # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
-    day = convert_dates(date)
+    return render(request, 'all-pics/today-pics.html', {"date": date,})
 
 
-    html = f'''
-        <html>
-            <body>
-                <h1> {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+def past_days_pics(request,past_date):
+    try:
+        # Converts data from the string Url
+        date = dte.datetime.strptime(past_date,'%Y-%m-%d').date()
 
-def convert_dates(dates):
+    except ValueError:
+     # Raise 404 error when ValueError is thrown
+      raise Http404()
+      assert False
+      
+    if date == dte.date.today():
+        return redirect(pics_of_day)
 
-    # Function that gets the weekday number for the date.
-    day_number = dte.date.weekday(dates)
-
-    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
-
-    # Returning the actual day of the week
-    day = days[day_number]
-    return day
+    return render(request, 'all-pics/past-pics.html', {"date": date})
 
