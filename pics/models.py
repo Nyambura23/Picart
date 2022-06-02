@@ -34,6 +34,5 @@ class tags(models.Model):
     class Meta:
       ordering = ['tag']
 
-class Image(models.Model):
-  image
+
 

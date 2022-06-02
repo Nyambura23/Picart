@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 import datetime as dte
+from .models import User
 
 # Create your views here.
 def welcome(request):
@@ -8,7 +9,7 @@ def welcome(request):
 
 def pics_of_day(request):
     date = dte.date.today()
-
+  
     return render(request, 'all-pics/today-pics.html', {"date": date,})
 
 
