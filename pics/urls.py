@@ -4,6 +4,5 @@ from . import views
 
 urlpatterns=[
     path('',views.welcome,name = 'welcome'),
-    path('today/',views.pics_of_day,name='picsToday'),
     re_path(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_pics,name = 'pastPics') 
 ]
