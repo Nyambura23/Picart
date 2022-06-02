@@ -37,7 +37,7 @@ class Image(models.Model):
     image = CloudinaryField('image')
     name =  models.CharField(max_length =60)
     description = models.TextField()
-    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    location = models.ForeignKey('Location' ,on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags) 
     
     def __str__(self):
@@ -81,4 +81,27 @@ class Image(models.Model):
         images = cls.objects.filter(tags__tag=search_term)
         return images
 
+class Location(models.Model):
+    location = models.CharField(max_length=60)
+    
+    def __str__(self):
+        """
+    A method that returns a location as a string
+     """
+        return self.location 
+    
+    def save_location(self):
+        """
+    A method that saves a location
+     """
+        self.save()
+    
+    def delete_location(self):
+        """
+    A method that deletes a location
+     """
+        self.delete()
+    
+    class Meta:
+        ordering = ['location']
  

@@ -1,8 +1,8 @@
-from tkinter import Image
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 import datetime as dte
-from .models import User
+from .models import User,Location,Image
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def welcome(request):
@@ -41,4 +41,13 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-pics/search.html',{"message":message})
+
+def location_results(request, location):
+    
+    try:
+        image_location = Image.filter_by_location(location)
+        message = location
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request, 'location.html', {"location": image_location, 'message': location}) 
 
