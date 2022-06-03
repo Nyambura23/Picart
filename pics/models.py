@@ -18,27 +18,27 @@ class User(models.Model):
         ordering = ['first_name']
 
 
-class tags(models.Model):
-    tag = models.CharField(max_length =30)
+class categories(models.Model):
+    categorie = models.CharField(max_length =30)
 
     def __str__(self):
-        return self.tag
+        return self.categorie
     
-    def save_tag(self):
+    def save_categorie(self):
       self.save()
 
-    def delete_tag(self):
+    def delete_categorie(self):
       self.delete()
 
     class Meta:
-      ordering = ['tag']
+      ordering = ['categorie']
 
 class Image(models.Model):
     image = CloudinaryField('image')
     name =  models.CharField(max_length =60)
     description = models.TextField()
     location = models.ForeignKey('Location' ,on_delete=models.CASCADE)
-    tags = models.ManyToManyField(tags) 
+    categories = models.ManyToManyField(categories) 
     
     def __str__(self):
         """
@@ -78,7 +78,7 @@ class Image(models.Model):
         """
     A method that searches an image
      """
-        images = cls.objects.filter(tags__tag=search_term)
+        images = cls.objects.filter(categories__categorie=search_term)
         return images
 
 class Location(models.Model):
