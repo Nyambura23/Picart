@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+{% load static%}
+
+{% block content%}
+
+<div class="container display-sec text-center">
+
+    <!-- Displaying submitted pictures -->
+    <div class="row">
+        {% for picture_item in images %}
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center display-area">
+            {% if picture_item.image %}
+            <a href="" data-toggle="modal" data-target="#myModal{{ picture_item.id }}"><img
+                    src="{{picture_item.image.url}}" class="uploaded-pics" alt="Image"> </a>
+            {% else %}
+            <p>No Image</p>
+            {% endif %}
+        </div>
+
+        <!-- Image modal     -->
+        <div id="myModal{{picture_item.id}}" class="modal fade" role="dialog" style="color:000">
+            <div class="modal-dialog">
+                <div class="modal-content mbody w3-black">
+                    <div class="modal-header">
+                        <strong>
+                            <p class="p-2"> {{picture_item.name}}</p>
+                        </strong>
+                    </div>
+                    <div class="modal-body p-2">
+                        <img src="{{picture_item.image.url}}" style="width:auto; max-height:300px">
+                        <p class="p-2">This photo was taken in <strong>{{picture_item.location}}.</strong></p>
+                        <p>{{picture_item.description}}</p>
+                    </div>
+                    <footer>
+                        <button id="copy-text-btn" class="btn copy-btn btn-modal"
+                            onclick="copyLink('{{picture_item.id}}.url')">Copy Image Link</button>
+                        <button type="button" class="btn btn-modal" data-dismiss="modal">Close</button>
+
+                        <input class="form-control copy-space input-lg text-center" type="text" value="{{picture_item.image.url}}"
+                            id="{{picture_item.id}}.url">
+
+                    </footer>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        function copyLink(element) {
+            var copyText = document.getElementById(element);
+            copyText.select();
+            document.execCommand("copy");
+        }
+    </script>
+    {% endblock %}
