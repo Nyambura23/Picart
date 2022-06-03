@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import User,tags
+from .models import Location, categories, Image
 
 # Register your models here.
 
-class UserAdmin(admin.ModelAdmin):
-    filter_horizontal =('tags',)
+class ImageAdmin(admin.ModelAdmin):
+    filter_horizontal =('categories',)
 
-
-admin.site.register(User)
-admin.site.register(tags)
+admin.site.register(Location)
+admin.site.register(Image,ImageAdmin)
+admin.site.register(categories)
