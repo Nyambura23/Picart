@@ -37,7 +37,6 @@ The location feature allows users to filter their images by location
 ## Testing
 Incase you would like to run test son the app, use the "python3 manage.py tests" command in terminal
 
-
 ## Known Bugs
 No known bugs as at now
 
