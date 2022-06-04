@@ -1,19 +1,21 @@
-.intro-section {
-  padding: 5%;
-  background: linear-gradient(90deg, rgb(250, 243, 243) 50%, #082032 50%);
-  height: 100vh;
-  margin: 30px;
 
-  
-}
-.hello-section, .pic-section {
-  margin: 7% auto;
+.body{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  height: 100vh; 
+
 }
 
 p {
   font-family: 'Inter';
-  color: #423F3E;
-  font-size: smaller;
+  color: whitesmoke;
+  font-size: 20px;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,7 +24,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro-heading {
-  font-size: 3rem;
+  font-size: 50px;
+  color: whitesmoke;
 }
 
 .btn-home {
@@ -38,13 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #082032;
   transition: 250ms;
 }
-.my-pic {
-  object-fit: cover;
-  width: 400px;
-  height: 400px;
-  border-radius: 10%;
-  box-shadow: 0 10px 13px 0 rgba(0, 0, 0, 0.2), 0 11px 25px 0 rgba(0, 0, 0, 0.19);
-}
+
 
 .nav-text, a {
   font-family: 'Inter';
@@ -113,12 +110,6 @@ margin-left: 8rem;
 
 }
 
-/* .display-sec {
-  padding: 5%;
-  background: linear-gradient(90deg, white 50%, #C8E3D4 50%);
-  height: 100vh;
-  
-} */
 
 .btn-modal {
   background-color: #082032;

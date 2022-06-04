@@ -5,36 +5,51 @@
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
-<div class="container">
-  {% if location %}
-  <p>The following images were taken in <strong>{{message}} </strong>.</p>
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark p-4 mb-4">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto">
+            <li class="nav-item active">
+                <a class="nav-link nav-text" href="{% url 'display' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+</nav>
 
-  {% for item in location %}
-  <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12 text-center display-area">
-          <a href="" data-target="#myModal{{item.id}}" data-toggle="modal"> <img src="{{item.image.url}}"
-                  class="uploaded-pics" alt="Image"></a>
-      </div>
-      <!-- Image Modal -->
-      <div id="myModal{{item.id}}" class="modal fade" role="dialog" style="color:000">
-          <div class="modal-dialog">
-              <div class="modal-content mbody w3-black">
-                  <div class="modal-header">
-                      <strong>
-                          <p class="p-2"> {{item.name}}</p>
-                      </strong>
-                  </div>
-                  <div class="modal-body p-2">
-                      <img src="{{item.image.url}}" style="width:auto; max-height:300px">
-                      <p class="p-2">Location: <strong>{{item.location}}.</strong></p>
-                      <p>{{item.description}}</p>
-                  </div>
-                  <footer>
-                      <button type="button" class="btn btn-modal" data-dismiss="modal">Close</button>
-                  </footer>
-              </div>
-          </div>
-          {% endfor %}
-          {% endif %}
-      </div>
-      {% endblock %}
+<div class="container">
+    {% if location %}
+    <p>The following images were taken in <strong>{{message}} </strong>.</p>
+
+    {% for item in location %}
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center display-area">
+            <a href="" data-target="#myModal{{item.id}}" data-toggle="modal"> <img src="{{item.image.url}}"
+                    class="uploaded-pics" alt="Image"></a>
+        </div>
+        <!-- Image Modal -->
+        <div id="myModal{{item.id}}" class="modal fade" role="dialog" style="color:000">
+            <div class="modal-dialog">
+                <div class="modal-content mbody w3-black">
+                    <div class="modal-header">
+                        <strong>
+                            <p class="p-2"> {{item.name}}</p>
+                        </strong>
+                    </div>
+                    <div class="modal-body p-2">
+                        <img src="{{item.image.url}}" style="width:auto; max-height:300px">
+                        <p class="p-2">This photo was taken in <strong>{{item.location}}.</strong></p>
+                        <p>{{item.description}}</p>
+                    </div>
+                    <footer>
+                        <button type="button" class="btn btn-modal" data-dismiss="modal">Close</button>
+                    </footer>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endblock %}

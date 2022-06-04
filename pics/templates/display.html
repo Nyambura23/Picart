@@ -3,6 +3,37 @@
 
 {% block content%}
 
+<nav class="navbar navbar-expand-lg navbar-dark  p-4">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto">
+            <li class="nav-item active">
+                <a class="nav-link nav-text" href="{% url 'index' %}">Home <span class="sr-only"></span></a>
+                <a class ='admin'href="/admin">Admin</a>
+            </li>
+            <li>
+                <a class="btn btn-primary dropdown-toggle location-toggle mr-4" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">View Images By Location</a>
+
+                <div class="dropdown-menu dropdown-primary">
+                    {% for item in location %}
+                    <a class="dropdown-item location-text" href="/location/{{ item.location }}/">{{ item.location }}</a>
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+        <form class="d-flex my-2 my-lg-0 ms-auto" action="{% url 'search_results' %}">
+            <input class="form-control mr-sm-2 search-space" type="search" aria-label="Search" name="image"
+                placeholder="Nature, Beach,Vibes" autocomplete="on">
+            <button class="btn btn-outline-success search-btn my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+
 <div class="container display-sec text-center">
 
     <!-- Displaying submitted pictures -->

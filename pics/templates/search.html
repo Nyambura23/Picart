@@ -2,46 +2,60 @@
 {% load static%}
 {% block content%}
 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark p-4 mb-4">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto">
+            <li class="nav-item active">
+                <a class="nav-link nav-text" href="{% url 'display' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="container">
-  <div class="row">
-      {% if images%}
-      <p>We have found <strong>{{ images|length }} </strong>images of the searched category
-          <strong>"{{message}}"</strong>.</p>
-      {% else %}
-      <p> We have found <strong>0</strong> images for the search term <strong>"{{message}}"</strong>. Please check you
-          have submitted the right term.<a class="text-dark" href="{% url 'display' %}">Search again</a></p>
-      {% endif %}
-  </div>
+    <div class="row">
+        {% if images%}
+        <p>We have found <strong>{{ images|length }} </strong>images of the searched category
+            <strong>"{{message}}"</strong>.</p>
+        {% else %}
+        <p> We have found <strong>0</strong> images for the search term <strong>"{{message}}"</strong>. Please check you
+            have submitted the right term.<a class="text-dark" href="{% url 'display' %}">Search again</a></p>
+        {% endif %}
+    </div>
 
-  <div class="row">
-      {% if images %}
-      {% for image in images %}
-      <div class="col-lg-4 col-md-6 col-sm-12">
-          <a href="" data-toggle="modal" data-target="#myModal{{ image.id }}"> <img class="uploaded-pics"
-                  src="{{ image.image.url }}" alt=""></a>
-      </div>
-      <!-- Image Modal -->
-      <div id="myModal{{image.id}}" class="modal fade" role="dialog" style="color:000">
-          <div class="modal-dialog">
-              <div class="modal-content mbody w3-black">
-                  <div class="modal-header">
-                      <strong>
-                          <p class="p-2"> {{images.name}}</p>
-                      </strong>
-                  </div>
-                  <div class="modal-body p-2">
-                      <img src="{{image.image.url}}" style="width:auto; max-height:300px">
-                      <p class="p-2">This photo was taken in <strong>{{image.location}}.</strong></p>
-                      <p>{{image.description}}</p>
-                  </div>
-                  <footer>
-                      <button type="button" class="btn btn-modal" data-dismiss="modal">Close</button>
-                  </footer>
-              </div>
-          </div>
-      </div>
-      {% endfor %}
-      {% endif %}
-  </div>
+    <div class="row">
+        {% if images %}
+        {% for image in images %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a href="" data-toggle="modal" data-target="#myModal{{ image.id }}"> <img class="uploaded-pics"
+                    src="{{ image.image.url }}" alt=""></a>
+        </div>
+        <!-- Image Modal -->
+        <div id="myModal{{image.id}}" class="modal fade" role="dialog" style="color:000">
+            <div class="modal-dialog">
+                <div class="modal-content mbody w3-black">
+                    <div class="modal-header">
+                        <strong>
+                            <p class="p-2"> {{images.name}}</p>
+                        </strong>
+                    </div>
+                    <div class="modal-body p-2">
+                        <img src="{{image.image.url}}" style="width:auto; max-height:300px">
+                        <p class="p-2">This photo was taken in <strong>{{image.location}}.</strong></p>
+                        <p>{{image.description}}</p>
+                    </div>
+                    <footer>
+                        <button type="button" class="btn btn-modal" data-dismiss="modal">Close</button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
 </div>
 {% endblock%} %}
