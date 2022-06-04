@@ -1,24 +1,5 @@
 from django.test import TestCase
-from .models import User,Location, Image, categories
-
-
-class UserTestClass(TestCase):
-
-    # Set up method
-    def setUp(self):
-        self.miss= User(first_name = 'Miss', last_name ='Bdnk', email ='bdnk@gmail.com')
-        self.miss.save_user()
-
-    # Testing  instance
-    def test_instance(self):
-        self.assertTrue(isinstance(self.miss,User))
-
-        # Testing Save Method
-    def test_save_method(self):
-        self.miss.save_user()
-        users = User.objects.all()
-        self.assertTrue(len(users) > 0)
-
+from .models import Location, Image, categories
 class ImageTestClass(TestCase):
     # Set up method
     def setUp(self):
@@ -55,17 +36,17 @@ class LocationTestClass(TestCase):
 class categoriesTestClass(TestCase):       
       # Set up method
     def setUp(self):
-        self.Portrait= categories(categorie='Portrait')
+        self.Portrait= categories(category='Portrait')
         
     def test_instance(self):
         self.assertTrue(isinstance(self.Portrait,categories))    
         
     def test_save_method(self):
-        self.Portrait.save_categorie()
+        self.Portrait.save_category()
         categorie = categories.objects.all()
         self.assertTrue(len(categorie)>0)    
         
     def test_delete_method(self):
-        self.Portrait.delete_categorie()
+        self.Portrait.delete_category()
         categorie = categories.objects.all()
         self.assertTrue(len(categorie)==0)

@@ -1,6 +1,10 @@
 {% load static %}
 {% include "base.html" %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 <div class="container">
   {% if location %}
   <p>The following images were taken in <strong>{{message}} </strong>.</p>

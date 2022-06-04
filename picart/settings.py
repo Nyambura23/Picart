@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'picart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'picart',
+        'NAME': 'young',
         'USER': 'bianca',
     'PASSWORD':'password',
     }

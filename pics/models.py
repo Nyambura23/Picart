@@ -2,48 +2,62 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
-class User(models.Model):
-    first_name = models.CharField(max_length =30)
-    last_name = models.CharField(max_length =30)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length = 10,blank =True)
 
+class Location(models.Model):
+    location = models.CharField(max_length=60)
+    
     def __str__(self):
-        return self.first_name
-
-    def save_user(self):
+        """
+    A method that returns a location as a string
+     """
+        return self.location 
+    
+    def save_location(self):
+        """
+    A method that saves a location
+     """
         self.save()
-
+    
+    def delete_location(self):
+        """
+    A method that deletes a location
+     """
+        self.delete()
+    
     class Meta:
-        ordering = ['first_name']
+        ordering = ['location']
 
 
 class categories(models.Model):
-    categorie = models.CharField(max_length =30)
-
+    category = models.CharField(max_length=60)
+     
     def __str__(self):
-        return self.categorie
+        """
+    A method that returns a category as a string
+     """
+        return self.category    
     
-    def save_categorie(self):
-      self.save()
+    def save_category(self):
+    
+        self.save()
+    
+    def delete_category(self):
 
-    def delete_categorie(self):
-      self.delete()
-
+        self.delete()
+    
     class Meta:
-      ordering = ['categorie']
+        ordering = ['category']   
+
 
 class Image(models.Model):
     image = CloudinaryField('image')
     name =  models.CharField(max_length =60)
     description = models.TextField()
-    location = models.ForeignKey('Location' ,on_delete=models.CASCADE)
-    categories = models.ManyToManyField(categories) 
+    location = models.ForeignKey(Location,on_delete=models.SET_NULL, null=True)
+    categories = models.ManyToManyField(categories , null=True) 
     
     def __str__(self):
-        """
-    A method that returns an image through its name
-     """
+    
         return self.name
     
     def save_image(self):
@@ -78,30 +92,13 @@ class Image(models.Model):
         """
     A method that searches an image
      """
-        images = cls.objects.filter(categories__categorie=search_term)
+        images = cls.objects.filter(categories__category=search_term)
         return images
-
-class Location(models.Model):
-    location = models.CharField(max_length=60)
     
-    def __str__(self):
+    @classmethod
+    def filter_by_location(cls, location):
         """
-    A method that returns a location as a string
+    A method that filters images using a location
      """
-        return self.location 
-    
-    def save_location(self):
-        """
-    A method that saves a location
-     """
-        self.save()
-    
-    def delete_location(self):
-        """
-    A method that deletes a location
-     """
-        self.delete()
-    
-    class Meta:
-        ordering = ['location']
- 
+        image_location = cls.objects.filter(location__location=location).all()
+        return image_location       

@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{% load static%}
+
+{% block content %}
+<div class="container_fluid intro-section">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 text-center hello-section">
+            <h1 class='intro-heading'>Beautifully Flawed</h1>
+            <p> Welcome to the Beautifully flawed lifestyle <br>
+                Come along for an exciting adventure.</p>
+            <a href=" {% url 'display' %} "> <button class="btn btn-home">View Photo Gallery</button></a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 pic-section text-center">
+            <!-- My Image -->
+            <img class="img-responsive my-pic" src="/static/images/Wallpaper.png" alt="Hi!" />
+        </div>
+    </div>
+</div>
+{% endblock %}

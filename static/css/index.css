@@ -1,0 +1,149 @@
+.intro-section {
+  padding: 5%;
+  background: linear-gradient(90deg, rgb(250, 243, 243) 50%, #082032 50%);
+  height: 100vh;
+  margin: 30px;
+
+  
+}
+.hello-section, .pic-section {
+  margin: 7% auto;
+}
+
+p {
+  font-family: 'Inter';
+  color: #423F3E;
+  font-size: smaller;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab';
+  
+}
+
+.intro-heading {
+  font-size: 3rem;
+}
+
+.btn-home {
+  background-color: #e0b0ff;
+  width: 40%;
+  color: white;
+  font-size: smaller;
+}
+
+.btn-home:hover{
+  background-color: white;
+  color: #082032;
+  border: 1px solid #082032;
+  transition: 250ms;
+}
+.my-pic {
+  object-fit: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 10%;
+  box-shadow: 0 10px 13px 0 rgba(0, 0, 0, 0.2), 0 11px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-text, a {
+  font-family: 'Inter';
+  font-size: smaller;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar {
+  background-color: #244e6e;  
+  color: white;
+}
+
+.search-btn {
+  background-color: #D5DBB3;
+  width: 40%;
+  color: #082032;
+  font-size: smaller;
+  margin: 0 4% 0 4%;
+}
+
+.location-toggle{
+  background-color: #D5DBB3;
+  width: 70%;
+  color: #082032;
+  font-size: smaller;
+margin-left: 8rem;
+}
+
+.location-toggle:hover {
+  background-color: #fff;
+  color: black;
+  border: 1px solid #082032;
+  transition: 250ms;
+}
+
+
+.search-btn:hover {
+  background-color: #fff;
+  color: black;
+  border: 1px solid #082032;
+  transition: 250ms;
+}
+
+.search-space {
+  width: 400px;
+  font-size: smaller;
+}
+
+.uploaded-pics {
+  object-fit: cover;
+  height: 300px;
+  width: 290px;
+  border-radius: 10%;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+
+.uploaded-pics:hover {
+  border: 7px solid #D5DBB3;
+  transition: 200ms;
+  filter: grayscale(15%);
+}
+
+.display-area {
+  padding: 3%;
+
+}
+
+/* .display-sec {
+  padding: 5%;
+  background: linear-gradient(90deg, white 50%, #C8E3D4 50%);
+  height: 100vh;
+  
+} */
+
+.btn-modal {
+  background-color: #082032;
+  width: 25%;
+  color: white;
+  font-size: smaller;
+  margin: 2%;
+}
+
+.btn-modal:hover{
+  background-color: white;
+  color: #082032;
+  border: 1px solid #082032;
+  transition: 250ms;
+}
+
+.modal {
+  width: 150%;
+}
+.location-text {
+  color: black;
+}
+
+.copy-space {
+  font-size: small;
+  width: 80%;
+  margin: 1% auto;
+}
