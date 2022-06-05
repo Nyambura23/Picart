@@ -3,6 +3,7 @@
 
 {% block content%}
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark  p-4">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto">
             <li class="nav-item active">
-                <a class="nav-link nav-text" href="{% url 'index' %}">Home <span class="sr-only"></span></a>
+                <a class="nav-link nav-text" href="{% url 'index' %}">Home </a>
                 <a class ='admin'href="/admin">Admin</a>
             </li>
             <li>
@@ -33,9 +34,7 @@
     </div>
 </nav>
 
-
 <div class="container display-sec text-center">
-
     <!-- Displaying submitted pictures -->
     <div class="row">
         {% for picture_item in images %}

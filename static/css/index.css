@@ -8,24 +8,15 @@
   background-position: center;
   background-size: cover;
   height: 100vh; 
-
 }
-
 p {
-  font-family: 'Inter';
-  color: whitesmoke;
-  font-size: 20px;
+  color: #4b2114;
+  font-size: smaller;
 
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Slab';
-  
 }
 
 .intro-heading {
-  font-size: 50px;
-  color: whitesmoke;
+  font-size: 50px; 
 }
 
 .btn-home {
@@ -51,12 +42,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  background-color: #244e6e;  
+  background-color: #e0b0ff;  
   color: white;
 }
 
 .search-btn {
-  background-color: #D5DBB3;
+  background-color: blanchedalmond;
   width: 40%;
   color: #082032;
   font-size: smaller;
@@ -64,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .location-toggle{
-  background-color: #D5DBB3;
+  background-color: blanchedalmond;
   width: 70%;
   color: #082032;
   font-size: smaller;

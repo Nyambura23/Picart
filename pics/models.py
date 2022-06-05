@@ -54,7 +54,7 @@ class Image(models.Model):
     name =  models.CharField(max_length =60)
     description = models.TextField()
     location = models.ForeignKey(Location,on_delete=models.SET_NULL, null=True)
-    categories = models.ManyToManyField(categories , null=True) 
+    categories = models.ManyToManyField(categories ) 
     
     def __str__(self):
     
