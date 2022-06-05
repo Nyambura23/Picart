@@ -11,12 +11,12 @@
 }
 p {
   color: #4b2114;
-  font-size: smaller;
-
+  font-size: 25px;
 }
 
 .intro-heading {
-  font-size: 50px; 
+  font-size: 70px; 
+  color: white;
 }
 
 .btn-home {
@@ -42,7 +42,7 @@ p {
 }
 
 .navbar {
-  background-color: #e0b0ff;  
+  background-color: #1a382e;  
   color: white;
 }
 

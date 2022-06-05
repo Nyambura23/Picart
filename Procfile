@@ -1,0 +1,1 @@
+web: gunicorn picart.wsgi --log-file -
